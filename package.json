@@ -1,0 +1,23 @@
+{
+  "name": "commands-for-discord",
+  "version": "0.0.1",
+  "description": "Use Google Assistant to message on Discord",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "discord",
+    "google",
+    "assistant",
+    "automation",
+    "message"
+  ],
+  "author": "Ajay Ramachandran",
+  "license": "MIT",
+  "dependencies": {
+    "actions-on-google": "^2.5.0",
+    "firebase-admin": "^6.1.0",
+    "firebase-functions": "^2.1.0"
+  }
+}
