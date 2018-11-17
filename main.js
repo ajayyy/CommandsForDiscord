@@ -22,9 +22,27 @@ app.post('/', function (req, res) {
 
     console.log(body);
 
-    res.json({
-        final_response: 'ok got it!'
-    });
+    //they just said yes to sending a message
+    if (body.queryResult.action === "DefaultWelcomeIntent.DefaultWelcomeIntent-yes") {
+
+        //ask what their message is
+        res.json({
+            "followupEventInput": {
+                "name": "send_message",
+                "parameters": {
+                },
+                "languageCode": "en-US"
+            }
+        });
+    }
+
+    //send message was just triggered by us, send a blank response
+    if (body.queryResult.queryText === "send_message") {
+        res.json({
+            "final_result": "true"
+        });
+    }
+    
 });
 
 //setup server
@@ -35,5 +53,5 @@ var server = httpsServer.listen(port, function () {
     var host = server.address().address
     var port = server.address().port
 
-    console.log('Server listening at port %s', port)
+    console.log('Server listening on port %s', port)
 });
